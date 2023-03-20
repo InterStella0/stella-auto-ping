@@ -12,6 +12,7 @@ import android.util.Log;
 
 import androidx.core.app.NotificationCompat;
 
+import com.stella.stellaathome.Credential;
 import com.stella.stellaathome.MainActivity;
 import com.stella.stellaathome.R;
 import com.stella.stellaathome.StellaService;
@@ -26,7 +27,7 @@ public class PingService extends Service {
     public PingService() {
         Log.d(TAG, "constructor called");
         isServiceRunning = false;
-        String mac = "a2:f1:8c:74:03:ce";
+        String mac = Credential.macTarget;
         tracker = new Tracker(mac, this::onMacConnect, this::onMacDisconnect);
         service = new StellaService();
     }
